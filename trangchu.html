@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang web chia sẻ khoá học ngắn hạn</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Lấy dữ liệu từ sessionStorage
+            var courseTitle = sessionStorage.getItem("courseTitle");
+            var courseTeacher = sessionStorage.getItem("courseTeacher");
+            var courseDuration = sessionStorage.getItem("courseDuration");
+            var courseFee = sessionStorage.getItem("courseFee");
+            var courseDescription = sessionStorage.getItem("courseDescription");
+            // Hiển thị dữ liệu trên các nhãn
+            $("#course-title").text(courseTitle);
+            $("#course-teacher").text(courseTeacher);
+            $("#course-duration").text(courseDuration);
+            $("#course-fee").text(courseFee);
+            $("#course-description").text(courseDescription);
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $("#registerForm").submit(function(event) {
+            event.preventDefault();
+            var formData = $(this).serializeArray();
+            var dataObject = {};
+            formData.forEach(function(item) {
+                dataObject[item.name] = item.value;
+            });
+            alert("Bạn đã đăng ký khoá học thành công!\n" + JSON.stringify(dataObject, null, 2));
+            $("#registerModal").modal("hide");
+            this.reset();
+        });
+    </script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="trangchu.html">Khoá học ngắn hạn</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="./index.html">Trang chủ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./gioithieuwweb.html">Giới thiệu</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./lienhe.html">Liên hệ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./chiase.html">Chia sẻ khóa học</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="jumbotron">
+        <div class="container">
+            <h1 class="display-4">Chào mừng bạn đến với trang web chia sẻ khoá học ngắn hạn</h1>
+            <p class="lead">Đây là nơi bạn có thể tìm kiếm và đăng ký các khoá học ngắn hạn về nhiều lĩnh vực khác nhau, do các giáo viên uy tín và chất lượng cung cấp.</p>
+            <hr class="my-4">
+            <p>Bạn cũng có thể trở thành một giáo viên và chia sẻ kiến thức của mình với cộng đồng học tập.</p>
+            <a class="btn btn-primary btn-lg" href="#" role="button">Tìm hiểu thêm</a>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="text-center">Các khoá học nổi bật</h2>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="./hinh-anh-cuon-sach-mo-dep.jpg" class="card-img-top" alt="Hình ảnh khoá học">
+                    <div class="card-body">
+                        <h5 class="card-title">Lập trình web với HTML, CSS và JavaScript</h5>
+                        <p class="card-text">Giáo viên: Nguyễn Văn A</p>
+                        <p class="card-text">Thời lượng: 10 buổi</p>
+                        <p class="card-text">Học phí: 1.000.000 đồng</p>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#registerModal">Đăng ký</button>
+                        <a href="./chitietsp1.html" class="btn btn-info">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="./lovepik-creative-three-hardcover-books-illustration-png-image_401276495_wh1200.png" class="card-img-top" alt="Hình ảnh khoá học">
+                    <div class="card-body">
+                        <h5 class="card-title">Tiếng Anh giao tiếp cơ bản</h5>
+                        <p class="card-text">Giáo viên: Trần Thị B</p>
+                        <p class="card-text">Thời lượng: 15 buổi</p>
+                        <p class="card-text">Học phí: 500.000 đồng</p>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#registerModal">Đăng ký</button>
+                        <a href="./chitietsp2.html" class="btn btn-info">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card mb-4">
+                    <img src="./ta-sach-tieng-viet.jpg" class="card-img-top" alt="Hình ảnh khoá học">
+                    <div class="card-body">
+                        <h5 class="card-title">Thiết kế đồ họa cơ bản với Photoshop</h5>
+                        <p class="card-text">Giáo viên: Lê Văn C</p>
+                        <p class="card-text">Thời lượng: 8 buổi</p>
+                        <p class="card-text">Học phí: 800.000 đồng</p>
+                        <button class="btn btn-success" data-toggle="modal" data-target="#registerModal">Đăng ký</button>
+                        <a href="./chitietsp3.html" class="btn btn-info">Chi tiết</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="registerModal" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registerModalLabel">Đăng ký khoá học</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form id="registerForm">
+                        <div class="form-group">
+                            <label for="nameInput">Họ và tên</label>
+                            <input type="text" class="form-control" id="nameInput" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="emailInput">Email</label>
+                            <input type="email" class="form-control" id="emailInput" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phoneInput">Số điện thoại</label>
+                            <input type="tel" class="form-control" id="phoneInput" name="phone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="addressInput">Địa chỉ</label>
+                            <input type="text" class="form-control" id="addressInput" name="address" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="courseSelect">Chọn khoá học</label>
+                            <select class="form-control" id="courseSelect" name="course" required>
+                                <option value="Lập trình web với HTML, CSS và JavaScript">Lập trình web với HTML, CSS và JavaScript</option>
+                                <option value="Tiếng Anh giao tiếp cơ bản">Tiếng Anh giao tiếp cơ bản</option>
+                                <option value="Thiết kế đồ họa cơ bản với Photoshop">Thiết kế đồ họa cơ bản với Photoshop</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Đăng ký</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <h2 class="text-center">Khóa học của bạn đã được chia sẻ</h2>
+        <div class="card mt-4">
+            <div class="card-body">
+                <h5 id="course-title" class="card-title">Tên khóa học</h5>
+                <p id="course-teacher" class="card-text">Tên giáo viên</p>
+                <p id="course-duration" class="card-text">Thời lượng</p>
+                <p id="course-fee" class="card-text">Học phí</p>
+                <p id="course-description" class="card-text">Mô tả khóa học</p>
+            </div>
+        </div>
+    </div>
+    <footer class="bg-dark text-white p-4 text-center">
+        <div class="container">
+            <p>Bản quyền thuộc về Trang web chia sẻ khoá học ngắn hạn © 2023. Tất cả các quyền được bảo lưu.</p>
+            <p>Địa chỉ:  Hà nội</p>
+            <p>Điện thoại: 0123456789</p>
+            <p>Email: 0978382522az@gmail.com</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
